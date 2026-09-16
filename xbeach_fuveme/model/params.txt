@@ -1,0 +1,62 @@
+%%% XBeach parameter file: Fuveme, Volta Region, Ghana -- 1D surfbeat morphodynamics
+%%% Template. Run model/build_bathymetry.py and model/build_boundary_conditions.py
+%%% first to generate the grid/bed/wave/tide files this points to, then copy this
+%%% file plus those outputs into a run directory understood by your XBeach binary.
+%%% See literature/parameters_from_literature.yaml for the sourced values below
+%%% and root README.md for how (and whether) to obtain/run the XBeach executable.
+
+%%% Grid parameters
+depfile      = bed.dep
+vardx        = 1
+xfile        = x.grd
+yfile        = y.grd
+posdwn       = 0
+nx           = 216
+ny           = 0
+alfa         = 0
+thetamin     = -90
+thetamax     = 90
+dtheta       = 10
+
+%%% Model time
+tstop        = 2592000        % 30 days compressed representative forcing; scaled to ~1 yr via morfac
+CFL          = 0.9
+
+%%% Physical processes
+wavemodel    = surfbeat
+morphology   = 1
+sedtrans     = 1
+vegetation   = 0              % set to 1 and supply veggiefile/veggiemapfile for the mangrove NbS scenario
+
+%%% Sediment (Jayson-Quashigah et al. 2019: D50 0.20-0.40 mm, fine-to-medium sand)
+D50          = 0.00030        % meters; mid-range default, override per transect from bathy metadata
+D90          = 0.00045
+rhos         = 2650
+por          = 0.4
+morfac       = 12             % morphological acceleration: 30-day forcing -> ~1 model-year of change
+morstart     = 0
+
+%%% Wave boundary condition
+instat       = jons_table
+bcfile       = filelist.txt
+random       = 1
+fcutoff      = 0
+trepfac      = 0.01
+wbctype      = jonswap
+
+%%% Tide / water level boundary condition (M2 semi-diurnal, range ~1 m, + SLR offset)
+zs0file      = tide.txt
+tideloc      = 1
+
+%%% Flow
+break        = roelvink2
+gamma        = 0.55
+alpha        = 1.0
+n            = 10
+
+%%% Output
+outputformat = netcdf
+tintg        = 3600           % hourly global output
+tintp        = 300
+nglobalvar   = 8
+globalvar    = zb zs H u v thetamean ue ceqsg

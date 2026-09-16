@@ -1,0 +1,6 @@
+total_volume_rate_m3_per_yr,reach_length_m,mean_shoreline_rate_m_per_yr,scenario
+-85272.5,2500.0,-3.612,baseline
+-42314.5,2500.0,-1.743,mangrove_nbs_berm
+-7409.5,2500.0,-0.179,mangrove_nbs_intertidal
+-97050.5,2500.0,-4.068,slr_2050_rcp45
+-102578.5,2500.0,-4.298,slr_2100_rcp85_subsidence

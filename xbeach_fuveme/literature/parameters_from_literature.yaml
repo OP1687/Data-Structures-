@@ -1,0 +1,113 @@
+# Physical parameters for the Fuveme XBeach setup, extracted from the literature
+# reviewed in literature_review.md. Every value carries its source so it can be
+# checked against a primary PDF before publication.
+#
+# Units are SI unless noted. Nothing here is measured at Fuveme directly unless
+# stated -- most numbers are regional (Lower Volta Delta / Gulf of Guinea) means
+# used as the best available proxy for the ungauged Fuveme stretch.
+
+site:
+  name: Fuveme
+  alt_spelling: Fuvemeh
+  admin: Keta Municipality, Volta Region, Ghana
+  approx_coords_deg: {lat: 5.85, lon: 0.83}
+  coord_confidence: approximate — replace with a surveyed point before publication
+  setting: barrier spit between the Gulf of Guinea and the Keta Lagoon,
+    downdrift (east) of the Volta River mouth, between Anyanui and Blekusu
+  source: "Coastal Care 2016; Dialogue Earth; UNESCO Courier; Angnuureng et al. 2025"
+
+waves:
+  Hs_annual_mean_m: [1.26, 1.62]        # range: min..max of annual/seasonal means
+  Tm_mean_period_s: [10.37, 10.86]
+  seasonal_cycle: {low_months: [1, 2], high_months: [7, 8]}
+  dominant_direction_deg_from: [190, 225]   # S to SW swell window
+  end_of_century_Hs_increase_m: [0.10, 0.40]
+  source: "Gulf of Guinea wave climate reanalysis 1979-2005, doi:10.3390/jmse10111581"
+
+tide:
+  regime: semi-diurnal
+  range_m: 1.0
+  classification: micro-tidal
+  source: "Volta Delta coastal-system reviews (regional consensus figure)"
+
+sediment_transport:
+  net_longshore_transport_direction: west_to_east
+  net_longshore_transport_rate_m3_per_yr: [1.0e6, 1.5e6]
+  note: among the highest unidirectional littoral drift rates reported globally
+  sediment_supply_disruption: "Akosombo Dam (1965) cut Volta River sediment discharge"
+  source: "Volta Delta coastal-system literature (Roest 2018 and related reviews)"
+
+sediment_grain_size:
+  D50_mm: [0.20, 0.40]
+  classification: fine-to-medium sand
+  spatial_trend: "west (Old Ningo) finer than east; ~43% of Lower Volta Delta beaches classed fine sand"
+  source: "Jayson-Quashigah et al. 2019, Ocean & Coastal Management, S0964569118309578"
+
+bathymetry:
+  survey_method: "Harmony Coast project: Valeport MIDAS echo-sounder repeat transects"
+  transect_spacing_m: 500
+  surveyed_depth_range_m: [3, 10]
+  offshore_extension_source: GEBCO (beyond 10 m depth)
+  source: "Angnuureng et al. 2025, Frontiers in Marine Science, 10.3389/fmars.2025.1526082"
+
+vertical_land_motion:
+  subsidence_rate_mm_per_yr_max: 9.2
+  method: "InSAR Sentinel-1, 2016-2020"
+  source: "Appeaning Addo et al., Quaternary Science Advances, 10.1016/j.qsa.2024.100175"
+
+sea_level_rise_scenarios_m_by_2100:
+  # Approximate bracket consistent with RCP-based local projections referenced
+  # in the subsidence study; treat as illustrative scenario inputs, not a
+  # substitute for reading the primary projection paper.
+  rcp2.6_slr_m: 0.4
+  rcp4.5_slr_m: 0.55
+  rcp8.5_slr_m: 0.75
+  rcp8.5_plus_subsidence_slr_m: 1.1
+
+shoreline_change_rates_m_per_yr:
+  # signed: negative = erosion (landward retreat), positive = accretion
+  fuveme_dsas_2025:
+    erosion_EPR: -107.6
+    erosion_LRR: -75.7
+    accretion_EPR: 28.5
+    accretion_LRR: 33.6
+    note: "extreme, localized transects adjacent to inlet/spit breach — not a stretch average"
+    source: "Scientific Reports 2025, 10.1038/s41598-025-98260-0"
+  fuveme_uav_volume_2017_2018:
+    net_volume_change_m3: 12700
+    period: "Apr 2017 - Apr 2018"
+    note: "net accretion in this specific 12-month window; site is described as swinging between strong erosion and strong accretion episodes"
+    source: "Jayson-Quashigah et al. 2019"
+  ada_foah:
+    mean_retreat_since_1926_m: 280.5
+    average_rate: -3.46
+    max_erosion_EPR: -5.01
+    max_erosion_LRR: -6.13
+    max_accretion_EPR: 3.77
+    max_accretion_LRR: 3.11
+    source: "Addo 2012, Natural Hazards, 10.1007/s11069-012-0216-3"
+  keta:
+    average_erosion: -2.38
+    erosion_range: [-9.3, -0.1]
+    average_accretion: 2.5
+    accretion_range: [0.1, 19.0]
+    pre_seawall: -1.6
+    post_seawall: 1.0
+    source: "sapub 2011 and Keta Sea Defence case-study literature"
+  volta_estuary_banks:
+    east_bank: -1.94
+    west_bank: -0.58
+    source: "Geoenvironmental Disasters 2020, 10.1186/s40677-020-00151-1"
+  regional_background_rate_used_as_default_target: -3.5
+  regional_background_rate_range: [-6.0, -2.0]
+  regional_background_rate_rationale: >
+    Excludes the extreme inlet-adjacent DSAS values; matches Ada Foah and Keta
+    open-coast averages. Used as the calibration target for the default
+    (non-inlet) Fuveme model scenario in this repository.
+
+xbeach_model_precedent:
+  mode: "1D surfbeat (instationary), vegetation module"
+  validation_RMSE_m: 0.75
+  mangrove_erosion_reduction_intertidal_high_density_pct: 97
+  mangrove_erosion_reduction_berm_high_density_pct: 53
+  source: "Angnuureng et al. 2025, Frontiers in Marine Science, 10.3389/fmars.2025.1526082"

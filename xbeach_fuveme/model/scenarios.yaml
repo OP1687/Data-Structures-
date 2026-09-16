@@ -1,0 +1,37 @@
+# Scenario matrix for the Fuveme XBeach setup. Each scenario is built by
+# running build_bathymetry.py / build_boundary_conditions.py with the listed
+# overrides, then copying params.txt (with `vegetation` and `D50` patched as
+# noted) alongside the generated grid/boundary files into its own run folder.
+
+scenarios:
+  baseline:
+    description: "Present-day sea level, no vegetation, representative annual wave/tide climate."
+    slr_m: 0.0
+    vegetation: 0
+
+  slr_2050_rcp45:
+    description: "Mid-century sea level rise (RCP4.5-consistent local projection), no vegetation."
+    slr_m: 0.25
+    vegetation: 0
+
+  slr_2100_rcp85_subsidence:
+    description: "End-of-century SLR + observed local subsidence, no vegetation (worst case)."
+    slr_m: 1.1
+    vegetation: 0
+
+  mangrove_nbs_intertidal:
+    description: >
+      Present-day sea level with high-density mangroves in the intertidal
+      zone, following the vegetation-module setup and reported ~97% erosion
+      reduction in Angnuureng et al. (2025).
+    slr_m: 0.0
+    vegetation: 1
+    veg_zone: intertidal
+    veg_density: high
+
+  mangrove_nbs_berm:
+    description: "Present-day sea level, high-density mangroves on the berm (~53% reported reduction)."
+    slr_m: 0.0
+    vegetation: 1
+    veg_zone: berm
+    veg_density: high
