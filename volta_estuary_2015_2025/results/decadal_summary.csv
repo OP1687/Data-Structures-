@@ -1,0 +1,8 @@
+transect_id,transect_name,alongshore_km,target_rate_m_per_yr,source,decadal_shoreline_rate_m_per_yr,decadal_shoreline_r2,decadal_volume_rate_m3_per_m_per_yr,decadal_volume_r2
+W3,"Ada Foah (township, updrift)",-3.0,-3.46,"Addo 2012, Natural Hazards, doi:10.1007/s11069-012-0216-3 (mean rate since 1926)",-4.061,0.999,-36.785,0.999
+W2,"West bank, estuary-adjacent",-1.5,-0.58,"Geoenvironmental Disasters 2020, doi:10.1186/s40677-020-00151-1 (west bank)",-1.143,0.976,-10.938,0.974
+W1,West spit margin / inlet,-0.5,-1.0,interpolated between estuary-bank and inlet-dynamics literature; high variability expected at a migrating inlet margin,-1.564,0.927,-15.36,0.93
+M0,Volta River mouth (bar/spit tip),0.0,-0.5,"Jayson-Quashigah et al. 2019 (Fuveme UAV study: extreme swings near the estuary, +12,700 m3 net one year)",-1.814,0.934,-18.096,0.926
+E1,East spit margin / inlet,0.5,-1.94,Geoenvironmental Disasters 2020 (east bank),-2.132,0.982,-21.62,0.98
+E2,Fuveme / Anyanui (regional background),1.5,-3.5,regional Lower Volta Delta background rate (excludes extreme inlet-adjacent DSAS outliers); Fuveme itself lost 37% of coastal land 2005-2017 (Coastal Care 2016),-4.271,0.998,-44.567,0.998
+E3,toward Keta,3.0,-2.38,sapub 2011 / Keta shoreline-change literature (average erosion rate),-3.047,0.999,-32.667,0.999
